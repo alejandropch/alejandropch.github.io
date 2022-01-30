@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Proyects from '../components/Proyects'
 
 export default function MainPage() {
     return (
@@ -12,11 +12,13 @@ export default function MainPage() {
             </div>
 
             </section>
+        <Proyects />
+            <section className="profile gradient">
+                <div className="profile__container">
+                </div>
+            </section>
+     
 
-        <section className="profile gradient">
-            <div className="profile__container">
-            </div>
-        </section>
         </div>
 
     )
