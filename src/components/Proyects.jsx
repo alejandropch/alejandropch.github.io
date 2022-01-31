@@ -1,13 +1,21 @@
-import React from 'react';
-import ProyectCard from './Proyect.Card';
-
+import React, { useEffect, useState } from 'react';
+import ProyectCard from './ProyectCard/Proyect.Card';
+import axios from '../http-common'
 export default function Proyects() {
-    const array = [1,2,3,4,5]
+    const [projects, setProjects] = useState([])
+    const http = axios()
+    useEffect(async()=>{
+        const {data} = await http.get('/projects')
+        setProjects(data)
+
+        
+    
+    },[])
   return (
     <div className="container">
         <div className="row row-cols-1 row-cols-md-2 ">
           {
-            array.map((i,key)=><ProyectCard key={key} />)
+            projects.map((item,key)=><ProyectCard key={key} data={item}/>)
           }
 
         </div>
