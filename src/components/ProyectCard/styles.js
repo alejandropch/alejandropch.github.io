@@ -16,7 +16,6 @@ const Card = styled.div`
             -webkit-animation-name: rotateInDownRight;
             animation-name: rotateInDownRight;
             visibility: visible;
-
             `
     }
 

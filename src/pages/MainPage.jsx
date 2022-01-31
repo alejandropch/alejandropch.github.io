@@ -3,7 +3,31 @@ import Proyects from '../components/Proyects'
 
 export default function MainPage() {
     return (
-        <div className="container">
+        <>
+        <div className="background">
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   </div>
+
+        <div className="container text-white">
             <section className="d-flex justify-content-start my-5">
             <div>
               <h1 className="hi__container--text">Alejandro Pachas</h1>
@@ -24,6 +48,7 @@ export default function MainPage() {
      
 
         </div>
+        </>
 
     )
 }
