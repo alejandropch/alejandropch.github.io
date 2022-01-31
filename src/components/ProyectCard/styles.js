@@ -6,8 +6,27 @@ const Card = styled.div`
     height: 250px;
     overflow: hidden;
     white-space: break-spaces;
-  
-    
+    visibility: hidden;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    ${props=> props.show && props.isOdd && css`
+            
+            -webkit-animation-name: rotateInDownRight;
+            animation-name: rotateInDownRight;
+            visibility: visible;
+
+            `
+    }
+
+    ${props=> props.show && !props.isOdd && css`
+            -webkit-animation-name: rotateInDownLeft;
+            animation-name: rotateInDownLeft;
+            visibility: visible;
+ 
+            `
+    }
      ${props=>props.theme=="text" && css`
         -webkit-backface-visibility: visible !important;
         backface-visibility: visible !important;
@@ -25,8 +44,7 @@ const Card = styled.div`
     
     ${props=>props.theme=="image" && css`
 
-
-        https://imgur.com/xx8nWal
+        //https://imgur.com/xx8nWal
         color:#fff;
         //background:#000;
       `
@@ -66,6 +84,93 @@ const Card = styled.div`
         }
         }
 
+
+
+
+
+    @-webkit-keyframes rotateInDownLeft {
+    0% {
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+    transform: rotate3d(0, 0, 1, -45deg);
+    opacity: 0;
+    }
+    100% {
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: none;
+    transform: none;
+    opacity: 1;
+    }
+    }
+    @keyframes rotateInDownLeft {
+    0% {
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+    transform: rotate3d(0, 0, 1, -45deg);
+    opacity: 0;
+    }
+    100% {
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transform: none;
+    transform: none;
+    opacity: 1;
+    }
+    } 
+
+
+
+
+
+
+
+
+  @-webkit-keyframes rotateInDownRight {
+  0% {
+  -webkit-transform-origin: right bottom;
+  transform-origin: right bottom;
+  -webkit-transform: rotate3d(0, 0, 1, 45deg);
+  transform: rotate3d(0, 0, 1, 45deg);
+  opacity: 0;
+  }
+  100% {
+  -webkit-transform-origin: right bottom;
+  transform-origin: right bottom;
+  -webkit-transform: none;
+  transform: none;
+  opacity: 1;
+  }
+  }
+  @keyframes rotateInDownRight {
+  0% {
+  -webkit-transform-origin: right bottom;
+  transform-origin: right bottom;
+  -webkit-transform: rotate3d(0, 0, 1, 45deg);
+  transform: rotate3d(0, 0, 1, 45deg);
+  opacity: 0;
+  }
+  100% {
+  -webkit-transform-origin: right bottom;
+  transform-origin: right bottom;
+  -webkit-transform: none;
+  transform: none;
+  opacity: 1;
+  }
+  } 
+
+
+
+
+
+
+
 `
 
 export {Card}
+
+
+
+

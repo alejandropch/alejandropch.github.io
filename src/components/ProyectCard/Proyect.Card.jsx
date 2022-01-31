@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {Card} from './styles'
-export default function ProyectCard({data:{title,desc:text}}) {
+import { useNearScreen } from '../../hooks/useNearScreen';
 
-
+export default function ProyectCard({data, isOdd}) {
+    const {title,desc:text} = data
      const [status, setStatus] =useState("image")
-
- 
+     const [show, element] = useNearScreen()
   return (
     
-    <Card className="col flex-column p-0 border" theme={status} onMouseEnter={()=>setStatus("text")}>
+    <Card className="col flex-column p-0 border" ref={element} show={show} theme={status} isOdd={isOdd}onMouseEnter={()=>setStatus("text")}>
         <div className="container">
 
             {status=="image"?
