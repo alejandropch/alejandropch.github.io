@@ -49,15 +49,105 @@ html {
   }
 }
 
+body {
+  background: #001547 !important;
+}
+
 .background {
   position: fixed;
   width: 100vw;
   height: 100vh;
   top: 0;
   left: 0;
-  background: #001547;
   overflow: hidden;
   z-index: -1;
+}
+
+@media screen and (max-width: 400px) {
+  .background span {
+    -webkit-animation: none;
+            animation: none;
+  }
+  .background span:nth-child(0) {
+    -webkit-animation: none;
+            animation: none;
+  }
+  .background span:nth-child(1) {
+    -webkit-animation: none;
+            animation: none;
+  }
+  .background span:nth-child(2) {
+    -webkit-animation: none;
+            animation: none;
+  }
+  .background span:nth-child(3) {
+    -webkit-animation: none;
+            animation: none;
+  }
+  .background span:nth-child(4) {
+    -webkit-animation: none;
+            animation: none;
+  }
+  .background span:nth-child(5) {
+    -webkit-animation: none;
+            animation: none;
+  }
+  .background span:nth-child(6) {
+    -webkit-animation: none;
+            animation: none;
+  }
+  .background span:nth-child(7) {
+    -webkit-animation: none;
+            animation: none;
+  }
+  .background span:nth-child(8) {
+    -webkit-animation: none;
+            animation: none;
+  }
+  .background span:nth-child(9) {
+    -webkit-animation: none;
+            animation: none;
+  }
+  .background span:nth-child(10) {
+    -webkit-animation: none;
+            animation: none;
+  }
+  .background span:nth-child(11) {
+    -webkit-animation: none;
+            animation: none;
+  }
+  .background span:nth-child(12) {
+    -webkit-animation: none;
+            animation: none;
+  }
+  .background span:nth-child(13) {
+    -webkit-animation: none;
+            animation: none;
+  }
+  .background span:nth-child(14) {
+    -webkit-animation: none;
+            animation: none;
+  }
+  .background span:nth-child(15) {
+    -webkit-animation: none;
+            animation: none;
+  }
+  .background span:nth-child(16) {
+    -webkit-animation: none;
+            animation: none;
+  }
+  .background span:nth-child(17) {
+    -webkit-animation: none;
+            animation: none;
+  }
+  .background span:nth-child(18) {
+    -webkit-animation: none;
+            animation: none;
+  }
+  .background span:nth-child(19) {
+    -webkit-animation: none;
+            animation: none;
+  }
 }
 
 .background span {

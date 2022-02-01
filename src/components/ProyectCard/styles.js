@@ -3,27 +3,31 @@ import styled,{css} from 'styled-components'
 
 const Card = styled.div`
 
-    height: 250px;
+    height: 270px;
     overflow: hidden;
     white-space: break-spaces;
     visibility: hidden;
-    -webkit-animation-duration: 1s;
-            animation-duration: 1s;
-            -webkit-animation-fill-mode: both;
-            animation-fill-mode: both;
+    min-width:270px;
+    position:relative;
     ${props=> props.show && props.isOdd && css`
             
             -webkit-animation-name: rotateInDownRight;
             animation-name: rotateInDownRight;
             visibility: visible;
+            -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
             `
     }
-
     ${props=> props.show && !props.isOdd && css`
             -webkit-animation-name: rotateInDownLeft;
             animation-name: rotateInDownLeft;
             visibility: visible;
- 
+            -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
             `
     }
      ${props=>props.theme=="text" && css`
@@ -51,10 +55,10 @@ const Card = styled.div`
    
     @media screen and (max-width: 400px) {
         height: fit-content;
-  } 
-
-
-        @keyframes flipInX {
+        animation:none !important;
+        
+    } 
+    @keyframes flipInX {
         0% {
         -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
         transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
@@ -81,95 +85,51 @@ const Card = styled.div`
         -webkit-transform: perspective(400px);
         transform: perspective(400px);
         }
-        }
-
-
-
-
-
-    @-webkit-keyframes rotateInDownLeft {
-    0% {
-    -webkit-transform-origin: left bottom;
-    transform-origin: left bottom;
-    -webkit-transform: rotate3d(0, 0, 1, -45deg);
-    transform: rotate3d(0, 0, 1, -45deg);
-    opacity: 0;
-    }
-    100% {
-    -webkit-transform-origin: left bottom;
-    transform-origin: left bottom;
-    -webkit-transform: none;
-    transform: none;
-    opacity: 1;
-    }
     }
     @keyframes rotateInDownLeft {
-    0% {
-    -webkit-transform-origin: left bottom;
-    transform-origin: left bottom;
-    -webkit-transform: rotate3d(0, 0, 1, -45deg);
-    transform: rotate3d(0, 0, 1, -45deg);
-    opacity: 0;
-    }
-    100% {
-    -webkit-transform-origin: left bottom;
-    transform-origin: left bottom;
-    -webkit-transform: none;
-    transform: none;
-    opacity: 1;
-    }
+        0% {
+        -webkit-transform-origin: left bottom;
+        transform-origin: left bottom;
+        -webkit-transform: rotate3d(0, 0, 1, -45deg);
+        transform: rotate3d(0, 0, 1, -45deg);
+        opacity: 0;
+        }
+        100% {
+        -webkit-transform-origin: left bottom;
+        transform-origin: left bottom;
+        -webkit-transform: none;
+        transform: none;
+        opacity: 1;
+        }
     } 
-
-
-
-
-
-
-
-
-  @-webkit-keyframes rotateInDownRight {
-  0% {
-  -webkit-transform-origin: right bottom;
-  transform-origin: right bottom;
-  -webkit-transform: rotate3d(0, 0, 1, 45deg);
-  transform: rotate3d(0, 0, 1, 45deg);
-  opacity: 0;
-  }
-  100% {
-  -webkit-transform-origin: right bottom;
-  transform-origin: right bottom;
-  -webkit-transform: none;
-  transform: none;
-  opacity: 1;
-  }
-  }
-  @keyframes rotateInDownRight {
-  0% {
-  -webkit-transform-origin: right bottom;
-  transform-origin: right bottom;
-  -webkit-transform: rotate3d(0, 0, 1, 45deg);
-  transform: rotate3d(0, 0, 1, 45deg);
-  opacity: 0;
-  }
-  100% {
-  -webkit-transform-origin: right bottom;
-  transform-origin: right bottom;
-  -webkit-transform: none;
-  transform: none;
-  opacity: 1;
-  }
-  } 
-
-
-
-
-
-
+    @keyframes rotateInDownRight {
+        0% {
+        -webkit-transform-origin: right bottom;
+        transform-origin: right bottom;
+        -webkit-transform: rotate3d(0, 0, 1, 45deg);
+        transform: rotate3d(0, 0, 1, 45deg);
+        opacity: 0;
+        }
+        100% {
+        -webkit-transform-origin: right bottom;
+        transform-origin: right bottom;
+        -webkit-transform: none;
+        transform: none;
+        opacity: 1;
+        }
+    } 
 
 `
 
-export {Card}
+const Img = styled.img`
+position: absolute;
+top:0;
+left:0;
+height:100%;
+width:100%;
+object-fit:cover;
+box-shadow:0 10px 14px rgba(0,0,0,.2);
 
+`
 
-
-
+export {Card, Img}

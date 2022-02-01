@@ -6,18 +6,89 @@
         transform: translate3d(0, 0, 1px) rotate(360deg);
     }
 }
+body{
+    background: #001547 !important;
 
+}
 .background {
     position: fixed;
     width: 100vw;
     height: 100vh;
     top: 0;
     left: 0;
-    background: #001547;
+    // right:0;
+    // bottom:0;
     overflow: hidden;
     z-index:-1
 }
+@media screen and (max-width: 400px) {
+.background span{
+    animation:none;
+}
 
+.background span:nth-child(0) {
+    animation:none;
+}
+.background span:nth-child(1) {
+    animation:none;
+}
+.background span:nth-child(2) {
+    animation:none;
+}
+.background span:nth-child(3) {
+    animation:none;
+}
+.background span:nth-child(4) {
+    animation:none;
+}
+.background span:nth-child(5) {
+    animation:none;
+}
+.background span:nth-child(6) {
+    animation:none;
+}
+.background span:nth-child(7) {
+    animation:none;
+}
+.background span:nth-child(8) {
+    animation:none;
+}
+.background span:nth-child(9) {
+    animation:none;
+}
+.background span:nth-child(10) {
+    animation:none;
+}
+.background span:nth-child(11) {
+    animation:none;
+}
+.background span:nth-child(12) {
+    animation:none;
+}
+.background span:nth-child(13) {
+    animation:none;
+}
+.background span:nth-child(14) {
+    animation:none;
+}
+.background span:nth-child(15) {
+    animation:none;
+}
+.background span:nth-child(16) {
+    animation:none;
+}
+.background span:nth-child(17) {
+    animation:none;
+}
+.background span:nth-child(18) {
+    animation:none;
+}
+.background span:nth-child(19) {
+    animation:none;
+}
+
+
+};
 .background span {
     width: 20vmin;
     height: 20vmin;
@@ -34,6 +105,7 @@
 .background span:nth-child(0) {
     color: #d2a4db;
     top: 65%;
+
     left: 58%;
     animation-duration: 23s;
     animation-delay: -23s;
