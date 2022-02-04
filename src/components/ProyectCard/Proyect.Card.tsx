@@ -22,8 +22,8 @@ export default function ProyectCard({data, isOdd} : Parameters) {
      }
   return (
     
-    <Card className="col flex-column" ref={element} show={show as boolean} theme={status as "image"|"text"} isOdd={isOdd}>
-        <div className="container" onMouseEnter={()=>setStatus("text")} onMouseLeave={handleMouseLeave}>
+    <div className="col flex-column">
+        <Card className="container" ref={element} show={show as boolean} theme={status as "image"|"text"} isOdd={isOdd}onMouseEnter={()=>setStatus("text")} onMouseLeave={handleMouseLeave}>
             {status=="image"?
                 <div>
                     <h3>{title}</h3>
@@ -35,8 +35,8 @@ export default function ProyectCard({data, isOdd} : Parameters) {
                     <p className="text-start">{text}</p>
                 </div>
             }
-        </div>
+        </Card>
 
-    </Card>  
+    </div>  
     )
 }
