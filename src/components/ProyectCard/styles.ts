@@ -1,4 +1,6 @@
+
 import {} from 'styled-components/cssprop'
+/* this will only be imported once */
 import styled,{css} from 'styled-components'
 
 interface Custom {
@@ -10,7 +12,6 @@ const Card = styled.div<Custom>`
     height: 270px;
     overflow: hidden;
     white-space: break-spaces;
-    margin-right:20px;
     visibility: hidden;
     min-width:270px;
     max-width:300px;
