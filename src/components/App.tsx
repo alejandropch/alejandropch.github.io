@@ -1,20 +1,18 @@
-import React from 'react'
+import * as React from 'react'
 import {BrowserRouter,Route,Routes} from 'react-router-dom'
-import MainPage from '../pages/MainPage.jsx'
-import Layout from './Layout.jsx'
+import MainPage from '../containers/MainPage'
+import Layout from './Layout'
 import "bootstrap/dist/css/bootstrap.min.css"
 
 export default function App() {
 
     return (
-
-    
      <BrowserRouter>
-     <Layout>
+         <Layout>
             <Routes>
                <Route path="/" element={<MainPage />}/> 
             </Routes>
-            </Layout>
+        </Layout>
     </BrowserRouter>
     )
 }

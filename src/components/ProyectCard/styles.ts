@@ -1,16 +1,22 @@
-import React from 'react';
+import {} from 'styled-components/cssprop'
 import styled,{css} from 'styled-components'
 
-const Card = styled.div`
+interface Custom {
+    show: boolean,
+    isOdd: boolean
+}
+const Card = styled.div<Custom>`
 
     height: 270px;
     overflow: hidden;
     white-space: break-spaces;
+    margin-right:20px;
     visibility: hidden;
     min-width:270px;
+    max-width:300px;
+
     position:relative;
-    ${props=> props.show && props.isOdd && css`
-            
+    ${props => props.show && props.isOdd && css`
             -webkit-animation-name: rotateInDownRight;
             animation-name: rotateInDownRight;
             visibility: visible;
@@ -18,9 +24,8 @@ const Card = styled.div`
             animation-duration: 1s;
             -webkit-animation-fill-mode: both;
             animation-fill-mode: both;
-            `
-    }
-    ${props=> props.show && !props.isOdd && css`
+            `}
+    ${props => props.show && !props.isOdd && css`
             -webkit-animation-name: rotateInDownLeft;
             animation-name: rotateInDownLeft;
             visibility: visible;
@@ -28,9 +33,8 @@ const Card = styled.div`
             animation-duration: 1s;
             -webkit-animation-fill-mode: both;
             animation-fill-mode: both;
-            `
-    }
-     ${props=>props.theme=="text" && css`
+            `}
+     ${props => props.theme == "text" && css`
         -webkit-backface-visibility: visible !important;
         backface-visibility: visible !important;
         -webkit-animation-name: flipInX;
@@ -42,16 +46,14 @@ const Card = styled.div`
       
         color:#fff;
         background:#000;
-      `
-    }
+      `}
     
-    ${props=>props.theme=="image" && css`
+    ${props => props.theme == "image" && css`
 
         //https://imgur.com/xx8nWal
         color:#fff;
         //background:#000;
-      `
-    }
+      `}
    
     @media screen and (max-width: 400px) {
         height: fit-content;

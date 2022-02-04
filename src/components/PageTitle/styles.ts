@@ -1,9 +1,8 @@
-import React from 'react';
 import styled,{css} from 'styled-components'
 
 const TitleContent = styled.div`
     display: flex;
-    min-height: 85vh;
+    min-height: 100vh;
     margin: 0 auto;
     text-align: center;
     align-items: center;

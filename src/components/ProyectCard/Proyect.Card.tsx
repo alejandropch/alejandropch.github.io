@@ -2,10 +2,19 @@ import React, { useEffect, useRef, useState } from 'react';
 import {Card, Img} from './styles'
 import { useNearScreen } from '../../hooks/useNearScreen';
 
-export default function ProyectCard({data, isOdd}) {
+
+interface Parameters {
+   readonly data: {
+        title: string,
+        desc: string
+    }, 
+    readonly isOdd: boolean
+}
+
+export default function ProyectCard({data, isOdd} : Parameters) {
     const {title,desc:text} = data
      const [status, setStatus] =useState("image")
-     const [show, element] = useNearScreen()
+     const [show, element] = useNearScreen() as any
      console.log(title,show);
      const handleMouseLeave = () => {
         //  setTimeout(()=>{setStatus("image")
@@ -13,7 +22,7 @@ export default function ProyectCard({data, isOdd}) {
      }
   return (
     
-    <Card className="col flex-column p-0 border" ref={element} show={show} theme={status} isOdd={isOdd}>
+    <Card className="col flex-column" ref={element} show={show as boolean} theme={status as "image"|"text"} isOdd={isOdd}>
         <div className="container" onMouseEnter={()=>setStatus("text")} onMouseLeave={handleMouseLeave}>
             {status=="image"?
                 <div>

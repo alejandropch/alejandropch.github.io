@@ -1,9 +1,9 @@
-import React from 'react'
+import * as React from 'react'
 import { Link } from 'react-router-dom'
-
+import {Nav} from './styles'
 export default function NavBar() {
     return (
-            <nav className="navbar navbar-expand">
+            <Nav className="navbar navbar-expand">
 {/*                 
                 <div className="container-fluid nav nav-tabs justify-content-end flex-nowrap"> */}
 
@@ -25,7 +25,7 @@ export default function NavBar() {
 
 
             {/* </div> */}
-        </nav>
+        </Nav>
 
     )
 }

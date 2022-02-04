@@ -5,10 +5,10 @@ export default function PageTitle() {
 
   return (
   
-    <section className="d-flex justify-content-start my-5">
+    <section className="d-flex justify-content-start">
         <TitleContent className="justify-content-center">
             <Name className="hi__container--text" >Alejandro Pachas.</Name>
-            <h2 href="#" className="hi__container--arrow-down">Fullstack Engineer</h2>
+            <h2 className="hi__container--arrow-down">Fullstack Engineer</h2>
         </TitleContent>
     </section>
     )

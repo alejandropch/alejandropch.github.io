@@ -3,38 +3,42 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: "./src/index.js",
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js",
-    publicPath: "/",
-  },
+  entry: "./src/index",
+
   resolve: {
-    extensions: [".js", ".jsx"],
+    extensions: [".ts", ".tsx", ".js", ".jsx"],
   },
   module: {
     rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
-
-            plugins: [['@babel/plugin-transform-runtime', { regenerator: true }]]
-          }
+        {
+            test: /\.tsx?$/,
+            use: {
+                loader: "ts-loader",
+                // options: {
+                // presets: ['@babel/preset-env', '@babel/preset-react'],
+                //plugins: [['@babel/plugin-transform-runtime', { //regenerator: true }]]
+                options: {
+                    transpileOnly: true,
+                  }
+            },
+            exclude:  /node_modules/,
+            //include: path.resolve(__dirname, './src/')
         },
-      },
-      {
-        test: /\.html$/,
-        use: [
-          {
-            loader: "html-loader",
-          },
-        ],
-      },
-      {
+            // addition - add source-map support
+        { 
+            enforce: "pre", 
+            test: /\.js$/, 
+            exclude: /node_modules/, 
+            loader: "source-map-loader" },  
+        {
+            test: /\.html$/,
+            use: [
+                {
+                loader: "html-loader",
+                },
+            ],
+        },
+        {
             test: /\.css$/,
             use:[
                 {
@@ -55,11 +59,19 @@ module.exports = {
      })
   ],
   devServer: {
-  static: {
-   directory: path.join(__dirname, "dist")
-  },
+    static: {
+        directory: path.join(__dirname, "dist")
+    },
     compress: true,
     port: 8000,
     historyApiFallback: true,
+  },
+
+  // addition - add source-map support
+  devtool: "source-map",
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "bundle.js",
+    publicPath: "/",
   },
 };
