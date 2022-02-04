@@ -19,15 +19,15 @@ export default function NavBar() {
     return (
         <Nav className="navbar navbar-expand" fixed={fixed}>
         {/* <div className="container-fluid nav nav-tabs justify-content-end flex-nowrap"> */}
-            <ul className="container-fluid nav justify-content-center flex-nowrap">
+            <ul className="container-fluid nav justify-content-evenly flex-nowrap">
                 <li className="nav-item">
-                    <Link className="nav-link" to="/">About</Link>
+                    <Link to="/">About</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to="/">Projects</Link>
+                    <Link to="/">Projects</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to="/">Contact</Link>
+                    <Link to="/">Contact</Link>
                 </li>
             </ul>
         </Nav>
