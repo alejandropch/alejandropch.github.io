@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import ContactForm from '../components/Contact/Contact.Form'
+import ContactForm from '../components/Form/Form.Contact'
 import axios from '../http-common'
 export default function Form() {
     const [message, setMessage] = useState("")
@@ -22,8 +22,9 @@ export default function Form() {
     
   return (
     <form className="d-flex align-items-center flex-column" ref={form}>
+        
         <p className="fs-3">Contact</p>
-        <ContactForm />
+            <ContactForm />
         <p className="text">{message}</p>
 
         <button type="button" className="btn btn-outline-light" onClick={handleClick}>Send</button>
