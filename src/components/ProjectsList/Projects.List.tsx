@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import ProyectCard from '../ProjectCard/Project.Card';
 import axios from '../../http-common'
 import SlideButton from '../SlideButton/Slide.Button'
+import {ProjectsList} from './styles'
 // import Rows  from './styles.js';
 export default function Proyects() {
 
@@ -22,18 +23,21 @@ export default function Proyects() {
 
     },[page])
     
-    if(!projects.length)return <h2>Loading</h2>
 
 // if the key is superior to the number of projects you should get, 
   return (
-    <div className="container position-relative">
-    <SlideButton page={page} setPage={setPage}/>
-        <div className="row gy-5 row-cols-1 row-cols-lg-2 ">
-          {
-            projects.map((item,key) => <ProyectCard key={key} data={item} isOdd={(key%2 == 0)} />)
-          }
-     
-        </div>
-    </div>
+    <ProjectsList className="container position-relative">
+    {  (!projects.length)?<h2>Loading</h2>:<>
+            <SlideButton page={page} setPage={setPage}/>
+                <div className="row gy-5 row-cols-1 row-cols-lg-2 ">
+                {
+                    projects.map((item,key) => <ProyectCard key={key} data={item} isOdd={(key%2 == 0)} />)
+                }
+            
+                </div>
+        </>
+    }
+    
+    </ProjectsList>
   );
 }
