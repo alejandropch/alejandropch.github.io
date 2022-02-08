@@ -9,17 +9,17 @@ interface Custom {
 }
 const Card = styled.div<Custom>`
 
-    height: 270px;
+    height: 370px;
     overflow: hidden;
     white-space: break-spaces;
     visibility: hidden;
     min-width:270px;
-    max-width:300px;
+    max-width:400px;
 
     position:relative;
     ${props => props.show && props.isOdd && css`
-            -webkit-animation-name: rotateInDownRight;
-            animation-name: rotateInDownRight;
+    -webkit-animation-name: rotateInDownLeft;
+            animation-name: rotateInDownLeft;
             visibility: visible;
             -webkit-animation-duration: 1s;
             animation-duration: 1s;
@@ -27,8 +27,9 @@ const Card = styled.div<Custom>`
             animation-fill-mode: both;
             `}
     ${props => props.show && !props.isOdd && css`
-            -webkit-animation-name: rotateInDownLeft;
-            animation-name: rotateInDownLeft;
+
+            -webkit-animation-name: rotateInDownRight;
+            animation-name: rotateInDownRight;
             visibility: visible;
             -webkit-animation-duration: 1s;
             animation-duration: 1s;

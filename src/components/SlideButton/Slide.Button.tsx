@@ -1,6 +1,6 @@
 import React from 'react';
 import useMaxPages from '../../hooks/useMaxPages'
-
+import {Button} from './styles'
 interface Params{
     readonly page:number,
          setPage(x:number):void
@@ -32,14 +32,14 @@ export default function SlideButton({page, setPage}:Params) {
         }
         </div>
 
-        <button className="carousel-control-prev" onClick={()=>handleClick('left')} type="button" data-bs-target="#Target" data-bs-slide="prev">
+        <Button className="carousel-control-prev" onClick={()=>handleClick('left')} type="button" data-bs-target="#Target" data-bs-slide="prev">
             <span className="carousel-control-prev-icon" aria-hidden="true"></span>
             <span className="visually-hidden">Previous</span>
-        </button>
-        <button className="carousel-control-next" onClick={()=>handleClick('right')} type="button" data-bs-target="#Target" data-bs-slide="next">
+        </Button>
+        <Button className="carousel-control-next" onClick={()=>handleClick('right')} type="button" data-bs-target="#Target" data-bs-slide="next">
             <span className="carousel-control-next-icon" aria-hidden="true"></span>
             <span className="visually-hidden">Next</span>
-        </button>  
+        </Button>  
     </>
     )
 }
