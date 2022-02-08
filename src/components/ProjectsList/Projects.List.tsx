@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import ProyectCard from '../ProyectCard/Proyect.Card';
+import ProyectCard from '../ProjectCard/Project.Card';
 import axios from '../../http-common'
 import SlideButton from '../SlideButton/Slide.Button'
 // import Rows  from './styles.js';
