@@ -18,7 +18,11 @@ export default function Proyects() {
             setProjects(data);
         }
         fetchData()
+        return()=>setProjects([]);
+
     },[page])
+    
+    if(!projects.length)return <h2>Loading</h2>
 
 // if the key is superior to the number of projects you should get, 
   return (
