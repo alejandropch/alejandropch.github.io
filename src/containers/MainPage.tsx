@@ -34,17 +34,7 @@ export default function MainPage() {
             <PageTitle />
             <About />
             <Projects />
-            <section>
-                <Form />
-
-            </section>
-            <section className="profile gradient">
-                <div className="profile__container">
-
-                </div>
-            </section>
-     
-
+            <Form />
         </div>
         </>
 

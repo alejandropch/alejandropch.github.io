@@ -22,11 +22,12 @@ export default function SlideButton({page, setPage}:Params) {
     <>
         <div className="carousel-indicators">
         {
+            // creating an array with the n° of maxPages as slots 
             [...Array(maxPages)].map((e,key)=> {
-            const pageNumber = key + 1
-            const isActive = (pageNumber==page) && true
+                const pageNumber = key + 1
+                const isActive = (pageNumber==page) && true
 
-            return <button key= {key} type="button" data-bs-target="#Target" data-bs-slide-to={pageNumber} className={isActive?"active":""} aria-label={`Slide ${pageNumber}`}></button>
+                return <button key= {key} type="button" data-bs-target="#Target" data-bs-slide-to={pageNumber} className={isActive?"active":""} aria-label={`Slide ${pageNumber}`}></button>
             })
         }
         </div>
