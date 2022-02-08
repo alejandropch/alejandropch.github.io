@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import {Card, Img} from './styles'
-import { useNearScreen } from '../../hooks/useNearScreen';
+import  useNearScreen from '../../hooks/useNearScreen';
 
 
 interface Parameters {
@@ -15,7 +15,6 @@ export default function ProyectCard({data, isOdd} : Parameters) {
     const {title,desc:text} = data
      const [status, setStatus] =useState("image")
      const [show, element] = useNearScreen() as any
-     console.log(title,show);
      const handleMouseLeave = () => {
         //  setTimeout(()=>{setStatus("image")
         // console.log("aaa");},1000)

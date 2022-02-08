@@ -7,7 +7,6 @@ export default function NavBar() {
     function onScroll():void {
         const showFixed = window.scrollY > 100
         fixed != showFixed && setFixed(showFixed)
-        console.log(fixed);
     }
 
     useEffect(()=>{

@@ -1,9 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
 
-export function useNearScreen () {
+export default function useNearScreen () {
   const [show, setShow] = useState(false)
   const element = useRef<HTMLDivElement>(null)
-
   useEffect(() => {
       const observer = new IntersectionObserver((entries) => {
           
