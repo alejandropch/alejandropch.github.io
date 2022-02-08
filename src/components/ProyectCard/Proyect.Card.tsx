@@ -15,6 +15,7 @@ export default function ProyectCard({data, isOdd} : Parameters) {
     const {title,desc:text} = data
      const [status, setStatus] =useState("image")
      const [show, element] = useNearScreen() as any
+    
      const handleMouseLeave = () => {
         //  setTimeout(()=>{setStatus("image")
         // console.log("aaa");},1000)
@@ -22,7 +23,9 @@ export default function ProyectCard({data, isOdd} : Parameters) {
   return (
     
     <div className="col flex-column">
-        <Card className="container" ref={element} show={show as boolean} theme={status as "image"|"text"} isOdd={isOdd}onMouseEnter={()=>setStatus("text")} onMouseLeave={handleMouseLeave}>
+        <Card className="container" ref={element} show={show as boolean} theme={status as "image"|"text"} isOdd={isOdd}onMouseEnter={()=>{
+            setStatus("text")
+            }}>
             {status=="image"?
                 <div>
                     <h3>{title}</h3>
