@@ -1,6 +1,6 @@
 import * as React from 'react'
 import PageTitle from '../components/PageTitle/Page.Title'
-import Projects from '../components/ProjectsList/Projects.List'
+import Projects from './Projects'
 import Form from './Contact'
 import About from './About'
 
