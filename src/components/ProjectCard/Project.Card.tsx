@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Card, Img} from './styles'
+import {Card, Img, CategoryImage} from './styles'
 import  useNearScreen from '../../hooks/useNearScreen';
 
 
@@ -11,7 +11,20 @@ interface Parameters {
     readonly isOdd: boolean
 }
 
-export default function ProyectCard({data, isOdd} : Parameters) {
+export function SkeletonCard(props: any){
+   return(
+        <>
+       {
+            [1, 2, 3, 4].map(key => (
+                <div key={key} className="col">
+                    <CategoryImage className="container" light={props.light} />
+                </div>
+            ))
+        }
+        </>
+    )
+}
+export function ProyectCard({data, isOdd} : Parameters) {
     const {title,desc:text} = data
      const [status, setStatus] =useState("image")
      const [show, element] = useNearScreen() as any

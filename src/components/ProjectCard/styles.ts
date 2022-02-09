@@ -2,6 +2,11 @@
 import {} from 'styled-components/cssprop'
 /* this will only be imported once */
 import styled,{css} from 'styled-components'
+import {skeletonStyle} from '../../styles/animation'
+
+interface SkeletonCustom {
+    light: any,
+}
 
 interface Custom {
     show: boolean,
@@ -99,7 +104,20 @@ const Card = styled.div<Custom>`
     } 
 
 `
-
+const CategoryImage = styled.div<SkeletonCustom>`
+      position:relative;
+    height: 370px;
+    overflow: hidden;
+    white-space: break-spaces;
+    min-width:270px;
+    max-width:400px;
+    background-color: rgba(155, 115, 200);
+    border-radius: 5%;
+    ${ props => css`
+            ${skeletonStyle(props.light)}
+        `
+    }
+`
 const Img = styled.img`
 position: absolute;
 top:0;
@@ -111,4 +129,4 @@ box-shadow:0 10px 14px rgba(0,0,0,.2);
 
 `
 
-export {Card, Img}
+export {Card, Img,CategoryImage}
