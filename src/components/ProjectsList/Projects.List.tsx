@@ -1,27 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
-import ProyectCard from '../ProjectCard/Project.Card';
-import axios from '../../http-common'
-import SlideButton from '../SlideButton/Slide.Button'
-import {ProjectsList} from './styles'
-// import Rows  from './styles.js';
-export default function Proyects() {
-
-    const [projects, setProjects] = useState([])
-    const [page, setPage] = useState(1)
-    const http = axios()
-   
-    useEffect(() => {
-        const fetchData = async () =>{
-            const { data } = await http.get('/projects',{params:{page}});
-            if(!data.length){
-                return setPage(1)
-            }
-            setProjects(data);
-        }
-        fetchData()
-        return()=>setProjects([]);
-
-    },[page])
+import {ProyectCard, SkeletonCard} from '../ProjectCard/Project.Card';
+import {List} from './styles'
+interface ItemData {
+         title: string,
+         desc: string
+ }
+export default function ProjectsList({projects}:any) {
     
 
 // if the key is superior to the number of projects you should get, 
