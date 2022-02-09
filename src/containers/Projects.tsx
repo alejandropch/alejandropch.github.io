@@ -17,7 +17,6 @@ export default function Projects() {
         fetchData()
         return()=>setProjects([]);
     },[page])
-    console.log(projects);
     
   return (
     <div className="container position-relative">

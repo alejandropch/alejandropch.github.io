@@ -9,7 +9,6 @@ export default function Form() {
          // as any 'cause fromEntries doesn't support null value and data don't accept undefined values already 'cause of useRef
         let data = form.current as any 
             data = Object.fromEntries(data)
-            console.log(data);
         try{
             const response = await http.post('/messages',data)
             const newMessage = response.data.message

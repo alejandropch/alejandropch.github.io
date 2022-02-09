@@ -31,7 +31,6 @@ export function ProyectCard({data, isOdd} : Parameters) {
     
      const handleMouseLeave = () => {
         //  setTimeout(()=>{setStatus("image")
-        // console.log("aaa");},1000)
      }
   return (
     
