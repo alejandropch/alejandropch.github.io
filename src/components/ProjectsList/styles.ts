@@ -1,7 +1,10 @@
-import styled from "styled-components";
+import styled,{css} from "styled-components";
 
-const ProjectsList = styled.div`
+
+
+const List = styled.div`
     min-height:800px;
 `
 
-export {ProjectsList}
+
+export {List}
