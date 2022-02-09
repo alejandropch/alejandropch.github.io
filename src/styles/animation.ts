@@ -1,7 +1,6 @@
 import { keyframes, css } from 'styled-components'
     
 const skeletonBackground = (light:any) => {
-    console.log("holaaA???",light);
     
     return(
   css`
