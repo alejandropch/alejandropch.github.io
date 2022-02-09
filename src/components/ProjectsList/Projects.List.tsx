@@ -7,21 +7,14 @@ interface ItemData {
  }
 export default function ProjectsList({projects}:any) {
     
-
-// if the key is superior to the number of projects you should get, 
   return (
-    <ProjectsList className="container position-relative">
-    {  (!projects.length)?<h2>Loading</h2>:<>
-            <SlideButton page={page} setPage={setPage}/>
-                <div className="row gy-5 row-cols-1 row-cols-lg-2 ">
-                {
-                    projects.map((item,key) => <ProyectCard key={key} data={item} isOdd={(key%2 == 0)} />)
-                }
-            
-                </div>
-        </>
-    }
-    
-    </ProjectsList>
+    <List className="container position-relative">
+            <div className="row gy-5 row-cols-1 row-cols-lg-2 ">
+            {
+                (!projects.length)? <SkeletonCard/>: projects.map((item:ItemData, key:number) => <ProyectCard key={key} data={item} isOdd={(key%2 == 0)} />)
+            }
+        
+            </div>
+    </List>
   );
 }
