@@ -3,6 +3,7 @@ import { motion, useInView } from "framer-motion"
 import Rocket from "./Rocket"
 export default function () {
   const aboutMeContainer = useRef(null)
+  const myPhotoPath = "/alejandro.png"
   const isInView = useInView(aboutMeContainer, {
     margin: "0px 0px -310px 0px",
     once: true,
@@ -47,7 +48,7 @@ export default function () {
 
         <div className="p-0 md:p-12">
           <motion.img
-            src="/alejandro-photo.jpeg"
+            src={myPhotoPath}
             animate={isInView && { scale: 1, opacity: 1 }}
             initial={{ scale: 0.8, opacity: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
