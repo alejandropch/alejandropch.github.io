@@ -46,9 +46,9 @@ export default function PianoContainer() {
         </div>
       </motion.div>
       <div>
-        <h1 className="block lg:hidden mx-4 font-bold text-4xl sm:text-5xl md:text-8xl  text-center">
-          Piano Available <br /> On Desktop!
-        </h1>
+        <h2 className="block lg:hidden mx-4 font-bold text-4xl sm:text-5xl md:text-7xl  text-center text-white dark:text-white">
+          Piano Available <br /> On Bigger Screens!
+        </h2>
       </div>
     </motion.div>
   )
