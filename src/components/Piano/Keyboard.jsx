@@ -1,71 +1,80 @@
 import {useState, useEffect} from "react"
 import { NaturalKey } from "./NaturalKey"
 import { AccidentalKey } from "./AccidentalKey"
-import PianoInstrument from "@/utils/Piano"
-import {animate} from "framer-motion"
+import PianoInstrument from "@/lib/Piano"
+import { isValidKey } from "@/utils/piano"
+import { KeyWrapper } from "./KeyWrapper"
+import PianoController from "@/lib/PianoController"
 
 export default function Keyboard({counter}) {
 
   const [keyPressed, setKeyPressed] = useState("")
   const [keyReleased, setKeyReleased] = useState("")
   const [piano] = useState(new PianoInstrument())
-  useEffect(() => {
-    piano.make()
-  }, [piano])
+  const [controller] = useState(() => new PianoController(piano, counter))
+  const [pianoReady, setPianoReady] = useState(false)
+
 
   useEffect(() => {
-    if (!piano.synth) return
+    let destroyed = false
 
-    document.addEventListener("keydown", async (e) => await handleKeyDown(e))
-    document.addEventListener("keyup", async (e) => await handleKeyUp(e))
+    async function waitForPiano() {
+      await piano.make()
+      if (!destroyed) 
+        setPianoReady(true)
+    }
+    waitForPiano()
 
     return () => {
-      document.removeEventListener("keydown", handleKeyDown)
-      document.removeEventListener("keyup", handleKeyUp)
+      destroyed = true
     }
-  }, [])
+  }, [piano])
+  useEffect(() => {
+    if (!pianoReady) return
 
-  async function handleKeyDown(e) {
-    const activeElement = document.activeElement
+    const keyDown = (e) => {
+      if (!isValidKey(document.activeElement)) return
+      controller.handleKeyDown(e, setKeyPressed, setKeyReleased)
+    }
 
-    const cancelKey =
-      activeElement.tagName == "INPUT" || activeElement.tagName == "TEXTAREA"
+    const keyUp = (e) => controller.handleKeyUp(e, setKeyPressed, setKeyReleased)
 
-    !cancelKey &&
-      piano.getKey(e.code).then(async (key) => {
-        setKeyPressed(key)
-        setKeyReleased(false)
-        await piano.playNote(key)
-        animate(counter, 10, {
-          duration: 0.5,
-          ease: "easeOut",
-        })
-      })
+    document.addEventListener("keydown", keyDown)
+    document.addEventListener("keyup", keyUp)
+
+    return () => {
+      document.removeEventListener("keydown", keyDown)
+      document.removeEventListener("keyup", keyUp)
+    }
+  }, [controller, pianoReady])
+
+
+  async function handleTapDown(key) {
+    if(!pianoReady)return
+    await controller.press(key, setKeyPressed, setKeyReleased)
   }
 
-  async function handleKeyUp(e) {
-    piano.getKey(e.code).then(async (key) => {
-      setKeyPressed(key)
-      setKeyReleased(key)
-      animate(counter, 0, {
-        duration: 0.5,
-        ease: "easeIn",
-      })
-
-      await piano.releaseNote(key)
-    })
+  async function handleTapUp(key) {
+    if(!pianoReady)return
+    controller.release(key, setKeyPressed, setKeyReleased)
   }
 
   return (
-    <div className="hidden lg:grid grid-rows-2 grid-cols-1 h-full relative overflow-hidden">
+    pianoReady && <div className="hidden lg:grid grid-rows-2 grid-cols-1 h-full relative overflow-hidden">
       <div className="flex flex-row row-start-1 grid-rows-2 col-start-1 row-span-2 w-full ">
         {piano.keys.map((key, index) => {
           return (
             !key.accidental && ( // if key.accidental is false, then is a Natural Key
-              <NaturalKey
+              <KeyWrapper
                 key={key.event_code}
-                props={[key, keyPressed, keyReleased, index]}
-              />
+                keyObj={key}
+                onPress={handleTapDown}
+                onRelease={handleTapUp}
+              >
+                <NaturalKey
+                  props={[key, keyPressed, keyReleased, index]}
+                />
+              </KeyWrapper>
             )
           )
         })}
@@ -80,11 +89,17 @@ export default function Keyboard({counter}) {
 
             return (
               key.accidental && (
-                <AccidentalKey
+                <KeyWrapper
                   key={key.event_code}
-                  props={[key, keyPressed, keyReleased, index]}
-                  className={extra_spacing}
-                />
+                  keyObj={key}
+                  onPress={handleTapDown}
+                  onRelease={handleTapUp}
+                >
+                  <AccidentalKey
+                    props={[key, keyPressed, keyReleased, index]}
+                    className={extra_spacing}
+                  />
+                </KeyWrapper>
               )
             )
           })}
