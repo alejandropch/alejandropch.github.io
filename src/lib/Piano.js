@@ -19,7 +19,7 @@ export default class Piano {
       new Key("KeyU", "A#4", true),
       new Key("KeyJ", "B4"),
       new Key("KeyK", "C5"),
-      new Key("KeyO", "C#5w", true),
+      new Key("KeyO", "C#5", true),
       new Key("KeyL", "D5"),
     ]
   }
@@ -44,23 +44,15 @@ export default class Piano {
       baseUrl: "https://tonejs.github.io/audio/salamander/",
       release: 10,
 
-      onload: () => {
-        synth.triggerAttackRelease(["C1", "E1", "G1", "B1"], 0.5)
-      },
     }).toDestination()
+    return Tone.loaded()
   }
 
-  async getKey(event_code) {
-    return new Promise((resolve, reject) => {
-      this.keys.map((key) => {
-        if (event_code == key.event_code) {
-          resolve(key)
-        }
-      })
-    })
+  getKey(event_code) {
+    return this.keys.find((key) => (event_code === key.event_code))
   }
   async playNote(key) {
-    if (key.is_pressed == true) return
+    if (key.is_pressed) return
 
     key.pressed = true
     await Tone.start()
@@ -81,14 +73,11 @@ export default class Piano {
 }
 
 class Key {
-  _event_code = ""
-  _note = ""
-  _pressed = false
-  accidental = false
 
   constructor(event_code, note, accidental =false) {
-    this.event_code = event_code
+    this._event_code = event_code
     this._note = note
+    this._pressed = false
     this.accidental = accidental
   }
 
