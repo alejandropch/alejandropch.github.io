@@ -1,5 +1,5 @@
 export function AccidentalKey({props, className}) {
-  const [key, key_pressed, key_released, index] = props
+  const [key, key_pressed, key_released] = props
   return (
 <div
   className={"w-24 xl:w-28 2xl:w-32 border rounded-md border-red-400  border-t-0  " + className}
