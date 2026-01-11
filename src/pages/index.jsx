@@ -15,8 +15,18 @@ export default function Home({role}) {
       <Head>
         <title>Alejandro Pachas</title>
         <link rel="icon" href="/web-logo.svg"/>
-        <meta name="description" content="Alejandro's web page" />
+        <meta name="description" content="Software Engineer" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://alejandropch.com"/>
+        <meta property="og:title" content="Alejandro Pachas" />
+        <meta
+          property="og:description"
+          content="Experienced in taking fullstack applications from scratch to
+            production. I've worked on e-commerce platforms, built CI/CD pipilines, handled SysAdmin and DevOps automation, and Discord bots!"
+        />
+        <meta property="og:image" content="https://alejandropch.com/alejandro.png" />
+
       </Head>
       <main>
         <SidebarContainer />
