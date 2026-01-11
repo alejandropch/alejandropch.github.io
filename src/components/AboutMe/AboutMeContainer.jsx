@@ -34,10 +34,8 @@ export default function () {
           animate={isInView && { x: 0, opacity: 1 }}
         >
           <p>
-            Hey there! I'm Alejandro Pachas, a Software Engineer who's
-            experienced in taking fullstack applications from scratch to
-            production. My work includes developing web apps, creating backend
-            servers, data engineering, and Discord bots!
+            Hey there! I'm Alejandro Pachas, a Software Engineer with experience taking fullstack applications from scratch to
+            production. My work includes e-commerce platforms, CI/CD pipelines, SysAdmin, DevOps automation, and Discord bots!
           </p>
 
           <p>
