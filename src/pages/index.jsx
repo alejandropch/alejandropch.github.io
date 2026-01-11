@@ -23,7 +23,7 @@ export default function Home({role}) {
         <meta property="og:title" content="Alejandro Pachas" />
         <meta
           property="og:description"
-          content="Experienced in taking fullstack applications from scratch to
+          content="Software Engineer experienced in taking fullstack applications from scratch to
             production. I've worked on e-commerce platforms, built CI/CD pipilines, handled SysAdmin and DevOps automation, and Discord bots!"
         />
         <meta property="og:image" content="https://alejandropch.com/alejandro-thumbnail.png" />
