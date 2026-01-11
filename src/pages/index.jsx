@@ -14,6 +14,7 @@ export default function Home({role}) {
     <>
       <Head>
         <title>Alejandro Pachas</title>
+        <meta name="robots" content="index, follow" />
         <link rel="icon" href="/web-logo.svg"/>
         <meta name="description" content="Software Engineer" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -25,7 +26,7 @@ export default function Home({role}) {
           content="Experienced in taking fullstack applications from scratch to
             production. I've worked on e-commerce platforms, built CI/CD pipilines, handled SysAdmin and DevOps automation, and Discord bots!"
         />
-        <meta property="og:image" content="https://alejandropch.com/alejandro.png" />
+        <meta property="og:image" content="https://alejandropch.com/alejandro-thumbnail.png" />
 
       </Head>
       <main>
