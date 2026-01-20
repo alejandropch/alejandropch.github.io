@@ -61,7 +61,7 @@ export default function Form({isInView}) {
       initial={{ opacity: 0 }}
       animate={isInView && { opacity: 1 }}
       transition={{ delay: 4, duration: 1 }}
-      className="flex flex-col space-y-4 w-full md:w-3/4"
+      className="flex z-10 flex-col space-y-4 w-full md:w-3/4"
     >
       <input
         type="text"
