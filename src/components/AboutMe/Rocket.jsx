@@ -3,7 +3,7 @@ import { motion } from "framer-motion"
 
 export default function Rocket({isInView}) {
   return (
-    <div className="absolute stroke-[#234f48] z-0  px-12 lg:block hidden self-center 2xl:self-end justify-self-start">
+    <div className="absolute  stroke-[#234f48] z-0  px-12 lg:block hidden self-center justify-self-start">
       <svg
         className=" xl:w-[520px] xl:h-[520px] w-[480px] h-[480px]  2xl:w-[700px] 2xl:h-[700px]"
         viewBox="0 0 20 20"

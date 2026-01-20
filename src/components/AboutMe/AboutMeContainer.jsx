@@ -23,12 +23,12 @@ export default function () {
     },
   }
   return (
-    <div className="h-screen bg-black relative overflow-hidden my-32 lg:my-0 " ref={aboutMeContainer} id="about-me" >
+    <div className="h-screen relative overflow-hidden my-32 lg:my-0 " ref={aboutMeContainer} id="about-me" >
       <div className="grid grid-cols-1 lg:grid-cols-2 items-end lg:items-center justify-items-center h-full ">
         <Rocket isInView={isInView}/>
 
         <motion.div
-          className="space-y-9 items-center mx-8 md:mx-16 md:ml-16 text-xl lg:text-2xl mb-8"
+          className="space-y-9 z-10 items-center mx-8 md:mx-16 md:ml-16 text-xl lg:text-2xl mb-8"
           initial={{ x: "-50%", opacity: 0 }}
           transition={{ duration: 1 }}
           animate={isInView && { x: 0, opacity: 1 }}
@@ -53,7 +53,7 @@ export default function () {
             transition={{ duration: 1, delay: 0.5 }}
             drag
             whileDrag={{ cursor: "grabbing" }}
-            className="w-3/4 min-w-72 rounded-lg mx-auto  cursor-grab z-50"
+            className="w-2/3 min-w-72 rounded-lg mx-auto  cursor-grab z-50"
           />
         </div>
       </div>
