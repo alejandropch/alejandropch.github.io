@@ -23,7 +23,7 @@ export default function () {
     },
   }
   return (
-    <div className="h-screen relative overflow-hidden my-32 lg:my-0" ref={aboutMeContainer} id="about-me" >
+    <div className="h-screen bg-black relative overflow-hidden my-32 lg:my-0 " ref={aboutMeContainer} id="about-me" >
       <div className="grid grid-cols-1 lg:grid-cols-2 items-end lg:items-center justify-items-center h-full ">
         <Rocket isInView={isInView}/>
 
@@ -46,6 +46,7 @@ export default function () {
 
         <div className="p-0 md:p-12">
           <motion.img
+            alt="photo of Alejandro"
             src={myPhotoPath}
             animate={isInView && { scale: 1, opacity: 1 }}
             initial={{ scale: 0.8, opacity: 0 }}

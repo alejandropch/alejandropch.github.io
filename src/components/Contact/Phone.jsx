@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 export default function Phone({ isInView }) {
   return (
     <motion.div
-      className="w-full z-90 inset-0 flex items-center justify-center text-center stroke-orange-300 absolute z-[-1]"
+      className="w-full z-90 inset-0 flex items-center justify-center text-center stroke-orange-300 absolute z-0"
       initial={{ opacity: 1 }}
       animate={isInView && { opacity: 0 }}
       transition={{ delay: 3, duration: 1 }}
